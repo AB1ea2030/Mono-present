@@ -605,3 +605,102 @@ button:hover {
   <a href="https://ar.ldare.me/accept/1879277" target="_blank" class="link-button"> </a>
   <div style="text-align: center; margin-top: 30px;">
 <a href="https://mob-infos.netlify.app/" target="_blank" class="link-butt
+<div style="text-align: center; margin-top: 20px;">
+  <a href="https://ar.ldare.me/accept/1879277" target="_blank" class="link-button"> </a>
+  <div style="text-align: center; margin-top: 30px;">
+<a href="https://mob-infos.netlify.app/" target="_blank" class="link-button">ohhh       </a>
+</div>
+
+<style>
+.link-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #502550, #763579);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.link-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+}
+</style>
+    </div>
+  </div>
+</div>
+<script>
+const giftBox = document.getElementById('gift-box');
+const message = document.getElementById('message');
+const continueBtn = document.getElementById('continue-btn');
+const giftScreen = document.getElementById('gift-screen');
+const mainContent = document.getElementById('mainContent');
+const giftHeartsContainer = document.getElementById('giftHeartsContainer');
+
+document.body.style.overflow = 'hidden';
+
+giftBox.addEventListener('click', () => {
+  giftBox.classList.add('open');
+  createGiftHearts();
+  setTimeout(() => {
+    message.style.display = 'block';
+    
+    continueBtn.classList.add('show');
+  }, 600);
+});
+
+
+
+continueBtn.addEventListener('click', () => {
+  giftScreen.style.opacity = '0';
+  setTimeout(() => {
+    giftScreen.style.display = 'none';
+    mainContent.style.display = 'block';
+    document.body.style.overflow = 'auto';
+    giftHeartsContainer.innerHTML = '';
+  }, 700);
+});
+
+function createGiftHearts() {
+  const count = 25;
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('div');
+    heart.textContent = '🩷💙';
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.bottom = '-30px';
+    heart.style.fontSize = (14 + Math.random() * 26) + 'px';
+    const duration = (2 + Math.random() * 3).toFixed(2);
+    heart.style.animation = `floatUp ${duration}s ease-out forwards`;
+    heart.style.transform = `translateX(${(Math.random() - 0.5) * 40}px)`;
+    giftHeartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), (parseFloat(duration) + 0.3) * 1000);
+  }
+}
+function togglePages() {
+  const container = document.getElementById('pages-container');
+  container.style.display = container.style.display === 'none' ? 'block' : 'none';
+}
+
+function showPage(num) {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  const page = document.getElementById('page' + num);
+  page.style.display = 'block';
+  page.scrollIntoView({ behavior: "smooth" });
+}
+
+function backToList() {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('pages-list').scrollIntoView({ behavior: "smooth" });
+}
+
+function showSurprise() {
+  const surprise = document.getElementById("surprise");
+  surprise.style.display = "block";
+  surprise.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+</body>
+</html>
