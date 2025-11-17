@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mono Birthday�</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Cairo:wght@400;700&display=swap');
+
+:root {
+  --main-purple: #280137;
+  --accent-purple: #692C82; 
+  --main-col: #4F2161;
+  --main-col2: #D2AAE2; 
+  --soft-white: #F0F0F0;
+  --dark-bg: #F5B027;
+  --highlight: #FF6EC7;
+  --light-gradient: #B39DDB;
+  --mob-col: #5D0EF1;
+  --moz-col: #CE1126; 
+  --trky-col: #F2F5FA;
+  --flx-font: #9C0000;
+  --nana-col: #BFA2DB;
+  --kone-col: #9424AE;
+  --kayo-col: #5D0EF1;
+    --kiwi-col: #53161D;
+  --brytny-col: #04F9EA; 
+  --pop-col: #114263;
+  --shahad-col: #5F8EC4;
+  --hafaa-col: #FF6EC7;
+  --mob-font: #7C83FF;
+   --moz-font: #0D0D0D;
+  --trky-font: #B39DDB; 
+  --flx-col: #00D4FF;
+  --nana-font: #F5F2EC;
+  --kone-font: #FFFFFF;
+  --kayo-font: #B39DDB;
+    --kiwi-font: #F8DF98;
+    --brytny-font: #0A6F83; 
+  --pop-font: #B4DFD5;
+  --shahad-font: #E7E7E7;
+  --hafaa-font: #FF6EC7;
+  --fr7-col: #6B547C;
+    --fr7-font: #B39DDB; 
+  --jmlol-col: #202646;
+  --jmlol-font: #F0E8D5;
+  --7s: #183863;
+    --7s-font: #AFC4BA; 
+    --mari-col: #BA0AC7;
+  --mari-font: #206016;
+  --roza-col: #FFFFFF;
+  --roza-font: #181818;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  color: var(--soft-white);
+  overflow-x: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    var(--main-purple),
+    var(--accent-purple),
+    var(--main-col),
+    var(--main-purple),
+    var(--main-col2)
+  );
+  background-size: 600% 600%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#gift-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #5A5A66 40%, #2E2E3A 100%);
+  z-index: 9999;
+  color: white;
+  transition: opacity 0.7s ease;
+}
+
+#gift-box {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(145deg, var(--jmlol-col), var(--jmlol-font));
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(123,77,216,0.7);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#gift-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: var(--highlight);
+  transform: translateY(-50%);
+}
+
+#gift-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 100%;
+  background: var(--highlight);
+  transform: translateX(-50%);
+}
+
+#gift-box.open {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 50px rgba(123,77,216,1);
+}
+
+#message {
+  display: none;
+  margin-top: 20px;
+  font-size: 1.4em;
+  color: var(--soft-white);
+  text-shadow: 0 0 10px var(--highlight);
+}
+
+#message-edit {
+  display: none;
+  margin-top: 15px;
+  padding: 8px 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1em;
+}
+
+#continue-btn {
+  display: none;
+  margin-top: 25px;
+  background: rgba(123,77,216,0.3);
+  color: #fff;
+  border: 2px solid rgba(123,77,216,0.5);
+  padding: 12px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.1em;
+  opacity: 0;
+  transition: all 0.7s ease;
+}
+
+#continue-btn.show {
+  display: inline-block;
+  opacity: 1;
+}
+
+#continue-btn:hover {
+  background: rgba(123,77,216,0.5);
+  transform: scale(1.05);
+}
+
+h1 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 3.2em;
+  margin-top: 20px;
+  color: #D1C4E9;
+  text-shadow: 0 0 12px #301B4F, 0 0 25px #3A1C7A;
+  animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 12px #9C27B0, 0 0 30px #4F32A5; }
+  to { text-shadow: 0 0 20px #CE93D8, 0 0 40px #7B4DD8; }
+}
+
+p {
+  font-size: 1.3em;
+  color: #D8D8FF;
+  text-shadow: 0 0 4px #000;
+  line-height: 1.6;
+}
+
+img, video {
+  width: 260px;
+  margin-top: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(180,150,255,0.4), 0 8px 25px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+  max-width: 90%;
+  height: auto;
+}
+
+img:hover {
+  transform: scale(1.07) rotate(-1deg);
+  opacity: 0.9;
+  box-shadow: 0 0 40px rgba(200,150,255,0.8), 0 12px 35px rgba(0,0,0,0.7);
+}
+
+button {
+  margin-top: 20px;
+  background: rgba(123,77,216,0.2);
+  border: 2px solid rgba(123,77,216,0.4);
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(123,77,216,0.25);
+  transition: all 0.35s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: rgba(123,77,216,0.4);
+  border-color: #B39DDB;
+  box-shadow: 0 0 25px #B39DDB, 0 0 40px rgba(123,77,216,0.3);
+  transform: scale(1.07);
+}
+
+.page {
+  display: none;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(25,20,50,0.6);
+  box-shadow: 0 0 15px rgba(180,150,255,0.3);
+  max-width: 800px;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.raining-hearts, .gift-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.raining-hearts .heart, .gift-hearts .heart {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+}
+
+.images-row img {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.8s ease forwards;
+}
+
+@keyframes popIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.videos-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.videos-row video {
+  width: 300px;
+  height: 180px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.videos-row video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+.link-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--main-purple), var(--accent-purple));
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.link-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--accent-purple), var(--highlight));
+}
+
+#page1  { background: var(--kiwi-col); color: var(--kiwi-font); }
+#page2  { background: var(--brytny-col); color: var(--brytny-font); }
+#page3  { background: var(--nana-col); color: var(--nana-font); }
+#page4  { background: var(--mob-col); color: var(--mob-font); }
+#page5  { background: var(--fr7-col); color: var(--soft-white); }
+#page6  { background: var(--jmlol-col); color: var(--jmlol-font); }
+#page7  { background: var(--7s); color: var(--7s-font); }
+#page8  { background: var(--flx-col); color: var(--flx-font); }
+#page9  { background: var(--shahad-col); color: var(--shahad-font); }
+#page10  { background: var(--kone-col); color: var(--kone-font); }
+#page11  { background: var(--pop-col); color: var(--pop-font); }
+#page12  { background: var(--mob-font); color: var(--main-purple); }
+#page13   { background: var(--moz-col); color: var(--moz-font); }
+#page14  { background: var(--kiwi-col); color: var(--kiwi-font); }
+#page15  { background: var(--kiwi-col); color: var(--kiwi-font); }
+#page16  { background: var(--kiwi-col); color: var(--kiwi-font); }
+#page17  { background: var(--mari-col); color: var(--mari-font); }
+#page18  { background: var(--roza-col); color: var(--roza-font); }
+</style>
+</head>
+<body>
+
+<div id="gift-screen">
+  <div id="gift-box"></div>
+  <div id="message">well  </div>
+  <button id="continue-btn">let's make it loud </button>
+  <div id="giftHeartsContainer" class="gift-hearts" aria-hidden="true"></div>
+</div>
+
+<div class="raining-hearts" id="rainingHearts"></div>
+
+<div id="mainContent" style="display:none;">
+
+  <h1>HAPPY BIRTHDAY</h1>
+  <p>well well well      <br>i hope a great day's for u love </p>
+  <button onclick="togglePages()">ur </button>
+  <div id="pages-container" style="display:none;">
+    <div id="pages-list">
+      <button onclick="showPage(1)">    </button>
+      <button onclick="showPage(2)">    </button>
+      <button onclick="showPage(3)">     </button>
+      <button onclick="showPage(4)">    </button>
+      <button onclick="showPage(5)">     </button>
+      <button onclick="showPage(6)">    </button>
+      <button onclick="showPage(7)">    </button>
+      <button onclick="showPage(8)">    </button>
+      <button onclick="showPage(9)">   </button>
+      <button onclick="showPage(10)">   </button>
+      <button onclick="showPage(11)">    </button>
+      <button onclick="showPage(12)">    </button>
+      <button onclick="showPage(13)">   //</button>
+      <button onclick="showPage(14)">    </button>
+      <button onclick="showPage(15)">  </button>
+      <button onclick="showPage(16)">   </button>
+      <button onclick="showPage(17)">  </button>
+      <button onclick="showPage(18)">   </button>
+    </div>
+    </div>
+<div class="page" id="page1"><h2>  </h2> </p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page2"><h2>  </h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page3"><h2> </h2>  </p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page4"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page5"><h2></h2> </p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page6"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page7"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page8"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page9"><h2></h2><p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page10"><h2></h2>                                                </p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page11"><h2></h2> </p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page12"><h2></h2></p><button onclick="backToList()"> </button></div>
+<div class="page" id="page13" style="position: relative; padding-top: 30px; padding-bottom: 30px;">
+
+  <h2 style="
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+/h2>
+
+  <p style="
+    font-size: 1.2em;
+    margin-bottom: 25px;
+  ">
+          
+  </p>
+
+  <div style="
+    background: linear-gradient(135deg, #7A3E9D, #C18DFF, #7A3E9D);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.25);
+    animation: colorShiftVid 6s ease infinite;
+    margin-bottom: 25px;
+  ">
+    <video controls style="width: 100%; border-radius: 14px;">
+      <source src="tahneai.mp4" type="video/mp4">
+          .
+    </video>
+  </div>
+
+  <p style="
+    font-size: 1.2em;
+    margin-top: 10px;
+  ">        </p>
+
+  <button onclick="backToList()"> </button>
+
+</div>
+
+<style>
+@keyframes colorShiftVid {
+  0%   { filter: hue-rotate(0deg); }
+  50%  { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+</style>
+  <div class="page" id="page14" style="position: relative; padding-top: 30px; padding-bottom: 30px;">
+
+
+  <h2 style="
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  ">  </h2>
+
+  <p style="
+    font-size: 1.2em;
+    margin-bottom: 25px;
+  ">
+           
+  </p>
+
+
+  <div style="
+    background: linear-gradient(135deg, #800020, #C17886, #F4C2C2);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.25);
+    animation: colorShift 6s ease infinite;
+    margin-bottom: 25px;
+  ">
+    <audio controls style="width: 100%; border-radius: 10px;">
+      <source src="ambeba.mp3" type="audio/mpeg">
+          .
+    </audio>
+  </div>
+
+  <p style="
+    font-size: 1.2em;
+    margin-top: 10px;
+  ">    ( )  </p>
+
+  <button onclick="backToList()"> </button>
+
+</div>
+
+<style>
+@keyframes colorShift {
+  0%   { filter: hue-rotate(0deg); }
+  50%  { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+</style>
+  <div class="page" id="page15"><h2></h2>/p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page16"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page17"><h2></h2></p><button onclick="backToList()"> </button></div>
+  <div class="page" id="page18"><h2></h2></p><button onclick="backToList()"> </button></div>
+  </div>
+</div>
+<img src="https://i.postimg.cc/G3BJRFvz/IMG-20251116-WA0056.jpg" alt="اعتذر الصورة من ميلاد شهد بس ترشي انشغل" />
+  <br><button onclick="showSurprise()">    btw</button>
+
+  <div id="surprise" style="display:none;">
+    <div class="images-row" style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px;">
+      <div style="text-align:center;">
+      
+        <p class="video-caption">  </p>
+        <img src="https://i.postimg.cc/7Lzv2GzH/IMG-20251115-WA0102-2.jpg" alt="idk" style="width:700px; height:250px; object-fit:cover;">
+      </div>
+    <div style="text-align:center;">
+    
+      <p class="video-caption"> </p>
+      <p class="video-caption">   2</p>
+        <img src="https://i.postimg.cc/YSYV9ccH/IMG-20251115-WA0103.jpg" alt="idk" style="width:700px; height:250px; object-fit:cover;">
+      </div>
+    <div style="text-align:center;">
+      <p class="video-caption"> </p>
+      
+      <p class="video-caption">   </p>
+        <img src="https://i.postimg.cc/RFGg64gB/IMG-20251116-WA0174.jpg" alt="idk" style="width:700px; height:250px; object-fit:cover;">
+      </div>
+    <div style="text-align:center;">
+      <p class="video-caption"> </p>
+      <p class="video-caption">   </p>
+        <img src="https://i.postimg.cc/NG9XrQJ8/IMG-20251116-231434-916.jpg" alt="idk" style="width:700px; height:250px; object-fit:cover;">
+      </div>
+          <div style="text-align:center;">
+      <p class="video-caption"> </p>
+      <p class="video-caption">   </p>
+        <img src="https://i.postimg.cc/rwJ62LNZ/IMG-20251117-WA0004.jpg" alt="idk" style="width:700px; height:250px; object-fit:cover;">
+      </div>
+    <div style="text-align:center;">
+      <p class="video-caption"></p>
+      
+      <img src="https://i.postimg.cc/vBzyvVH0/35949917e3b343317d9a57636e686b2c-1.jpg" alt="idk" 
+           style="width:250px; height:250px; border-radius:15px; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.3);"
+           onclick="document.getElementById('album1').style.display='block'">
+
+      <div id="album1" style="
+  display:none;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.8);
+  padding:30px;
+  text-align:center;
+  overflow-y:auto;
+  z-index:10000;
+">
+        <div style="background:#fff; display:inline-block; padding:15px; border-radius:10px; max-width:90%; position:relative;">
+          <span style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;" onclick="document.getElementById('album1').style.display='none'">&times;</span>
+          <h3 style="margin-top:0;">she cooked</h3>
+          <img src="https://i.postimg.cc/3rPNvpVf/IMG-20251116-WA0082.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+          <img src="https://i.postimg.cc/ZKtYRmvj/IMG-20251116-WA0081.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+          <img src="https://i.postimg.cc/YShBRDm4/IMG-20251116-224425-244.jpg" style="width:100%; border-radius:8px;">
+             
+                              
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <p class="video-caption">nothin</p>
+      <img src="https://i.postimg.cc/wvzfjRVC/IMG-20251031-200343-100.jpg" alt="سكش بوب 🤤" 
+           style="width:250px; height:250px; border-radius:15px; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.3);"
+           onclick="document.getElementById('album2').style.display='block'">
+
+      <div id="album2" style="
+  display:none;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.8);
+  padding:30px;
+  text-align:center;
+  overflow-y:auto;
+  z-index:10000;
+">
+        <div style="background:#fff; display:inline-block; padding:15px; border-radius:10px; max-width:90%; position:relative;">
+          <span style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;" onclick="document.getElementById('album2').style.display='none'">&times;</span>
+          <h3 style="margin-top:0;">     </h3>
+          <img src="" style="width:100%; border-radius:8px; margin-bottom:10px;">
+          <img src="https://i.postimg.cc/6q77NfSq/IMG-20251116-WA0160.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+          <img src="https://i.postimg.cc/NF062Xnc/IMG-20251116-WA0156.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+          <img src="https://i.postimg.cc/t4rrzRzt/IMG-20251116-WA0162.jpg" style="width:100%; border-radius:8px;">
+          
+        </div>
+      </div>
+      <div class="audio-wrap">
+  <div class="hover-text">    </div>
+  
+  <audio controls>
+    <source src="trky voice.mp3" type="audio/mpeg">
+        .
+  </audio>
+</div>
+    </div>
+      <div class="videos-row">
+        <video controls>
+          <source src="shahad-sis.mp4" type="video/mp4">
+        </video>
+        <video controls>
+          <source src="jmlool.mp4" type="video/mp4">
+        </video>
+        <video controls>
+          <source src="trky-beat.mp4" type="video/mp4">
+        </video>
+        <video controls>
+          <source src="mob-edit-for-mono.mp4" type="video/mp4">
+        </video>
+        </video>
+      </div>
+<div style="text-align: center; margin-top: 20px;">
+  <a href="https://ar.ldare.me/accept/1879277" target="_blank" class="link-button"> </a>
+  <div style="text-align: center; margin-top: 30px;">
+<a href="https://mob-infos.netlify.app/" target="_blank" class="link-button">ohhh       </a>
+</div>
+
+<style>
+.link-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #502550, #763579);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.link-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+}
+</style>
+    </div>
+  </div>
+</div>
+<script>
+const giftBox = document.getElementById('gift-box');
+const message = document.getElementById('message');
+const continueBtn = document.getElementById('continue-btn');
+const giftScreen = document.getElementById('gift-screen');
+const mainContent = document.getElementById('mainContent');
+const giftHeartsContainer = document.getElementById('giftHeartsContainer');
+
+document.body.style.overflow = 'hidden';
+
+giftBox.addEventListener('click', () => {
+  giftBox.classList.add('open');
+  createGiftHearts();
+  setTimeout(() => {
+    message.style.display = 'block';
+    
+    continueBtn.classList.add('show');
+  }, 600);
+});
+
+
+
+continueBtn.addEventListener('click', () => {
+  giftScreen.style.opacity = '0';
+  setTimeout(() => {
+    giftScreen.style.display = 'none';
+    mainContent.style.display = 'block';
+    document.body.style.overflow = 'auto';
+    giftHeartsContainer.innerHTML = '';
+  }, 700);
+});
+
+function createGiftHearts() {
+  const count = 25;
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('div');
+    heart.textContent = '';
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.bottom = '-30px';
+    heart.style.fontSize = (14 + Math.random() * 26) + 'px';
+    const duration = (2 + Math.random() * 3).toFixed(2);
+    heart.style.animation = `floatUp ${duration}s ease-out forwards`;
+    heart.style.transform = `translateX(${(Math.random() - 0.5) * 40}px)`;
+    giftHeartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), (parseFloat(duration) + 0.3) * 1000);
+  }
+}
+function togglePages() {
+  const container = document.getElementById('pages-container');
+  container.style.display = container.style.display === 'none' ? 'block' : 'none';
+}
+
+function showPage(num) {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  const page = document.getElementById('page' + num);
+  page.style.display = 'block';
+  page.scrollIntoView({ behavior: "smooth" });
+}
+
+function backToList() {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('pages-list').scrollIntoView({ behavior: "smooth" });
+}
+
+function showSurprise() {
+  const surprise = document.getElementById("surprise");
+  surprise.style.display = "block";
+  surprise.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+</body>
+</html>
